@@ -9,10 +9,12 @@ class FinishTodo extends React.Component{
         return ( 
             <div>
                 {
-                    itemsFilter.map(item => (
+                    itemsFilter.map((item,index) => (
                         <Item 
                             item = {item}
                             isCompleted = {item.completed}
+                            index = {index}
+                            updateItem = {this.props.updateItem}
                         />
                     ))
                 }
@@ -24,5 +26,8 @@ class FinishTodo extends React.Component{
 const mapStateToProps = state => {
     return { items: state.items }
 }
+const mapDispatchToProps = dispatch => ({
+    updateItem: (index) => dispatch({type: "COMPLETETODO", index: index})
+})
 
-export default connect(mapStateToProps)(FinishTodo)
+export default connect(mapStateToProps,mapDispatchToProps)(FinishTodo)

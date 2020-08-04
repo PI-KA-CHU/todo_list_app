@@ -16,7 +16,7 @@ export default (state = initState, action) => {
             return {
                 items: state.items.filter((item, index) => action.index !== index)
             }
-        case "CompleteToDo":
+        case "COMPLETETODO":
             state.items[action.index].completed = !state.items[action.index].completed
             return {items : [...state.items]}
         default:

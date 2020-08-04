@@ -1,9 +1,19 @@
 import React from 'react'
 import Item from '../item/item';
 import { connect } from 'react-redux'
+import axiosUtil from '../../axiosUtil'
 
 class ItemList extends React.Component {
-   
+   componentDidMount() {
+       axiosUtil.GET(
+           (response)=>{
+                console.log(response.data);
+           },
+           (error) => {
+                console.log(error);
+           }
+       )
+   }
 
     render() {
      
@@ -29,7 +39,7 @@ class ItemList extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
     deleteItem: (index) => dispatch({ type: "DELETEITEM", index: index }),
-    updateItem: (index) => dispatch({type: "CompleteToDo", index: index})
+    updateItem: (index) => dispatch({type: "COMPLETETODO", index: index})
 })
 
 export default connect(null,mapDispatchToProps)(ItemList)
