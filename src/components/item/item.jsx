@@ -16,8 +16,8 @@ class Item extends React.Component {
         return (
             <div>
                 <div>
-                    <label onClick = {this.finishToDo} style={{ textDecorationLine: this.props.item.completed ? 'line-through' : 'none' }}>
-                         {this.props.item.text}
+                    <label onClick = {this.finishToDo} style={{ textDecorationLine: this.props.completed ? 'line-through' : 'none' }}>
+                         {this.props.text}
                     </label>
                     <button onClick = {this.deleteTodo}>X</button>
                 </div>

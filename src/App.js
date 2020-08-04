@@ -3,10 +3,8 @@ import './App.css';
 import ItemGroup from './components/ItemGroup/ItemGroup';
 import FinishTodo from './components/FinishTodo/FinishTodo'
 import HeaderPage from './components/HeaderPage/HeaderPage'
-import TodoPage from './axiosComponent/TodoPage/TodoPage'
-import ShowItems  from './axiosComponent/TodoPage/ShowItems'
+import ShowItems  from './axiosComponent/ShowItems'
 import {HashRouter, Route} from 'react-router-dom'
-import ShowItem from './axiosComponent/TodoPage/ShowItems';
 
 
 function App(props) {

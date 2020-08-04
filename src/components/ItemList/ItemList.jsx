@@ -1,19 +1,8 @@
 import React from 'react'
 import Item from '../item/item';
 import { connect } from 'react-redux'
-import axiosUtil from '../../axiosUtil'
 
 class ItemList extends React.Component {
-   componentDidMount() {
-       axiosUtil.GET(
-           (response)=>{
-                console.log(response.data);
-           },
-           (error) => {
-                console.log(error);
-           }
-       )
-   }
 
     render() {
      

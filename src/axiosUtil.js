@@ -1,16 +1,14 @@
 import axios from 'axios'
-import Item from './components/item/item';
 
 export default {
-    GET: (_this) => {
-        const a = _this;
+    axiosGET: (_this) => {
         axios.get('https://5e9ec500fb467500166c4658.mockapi.io/todos')
             .then((response) => {
-                a.setState({
+                _this.setState({
                     items: response.data
                 })
             }).catch((error) => {
-                a.setState({
+                _this.setState({
                     error: error
                 })
             })
@@ -40,11 +38,5 @@ export default {
                 errorCallBack(error)
             })
     },
-
-
-
-
-
-
 
 }
