@@ -6,9 +6,8 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
       case "ADDITEM":
-          console.log("-------" + action.itemValue)
           return {
-             items : [state.items, action.itemValue]
+             items : [...state.items,action.itemValue]
           }
       case "DELETEITEM":
           return {

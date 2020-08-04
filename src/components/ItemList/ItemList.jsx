@@ -1,15 +1,19 @@
 import React from 'react'
+import Item from '../item/item';
 
-class ItemList extends React.Component{
+class ItemList extends React.Component {
 
-    render(){
-        const initArray = [...Array(this.props.items.size).keys()];
-        console.log(this.props.items)
+    render() {
+        const initArray = this.props.items;
+        // console.log(this.props.items)
         return (
             <div>
-                {initArray.map(key =>
-                    <div key={key}>{key}</div> 
-                )}
+                {
+                    initArray.map(key => (
+                        <Item key={key} index = {key} />
+                    )
+                    )
+                }
             </div>
         )
     }
