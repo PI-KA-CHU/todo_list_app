@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from '../item/item';
+import { connect } from 'react-redux'
 
 class ItemList extends React.Component {
 
@@ -9,14 +10,21 @@ class ItemList extends React.Component {
         return (
             <div>
                 {
-                    initArray.map(key => (
-                        <Item key={key} index = {key} />
-                    )
-                    )
+                    initArray.map((item,index) => (
+                        <Item key={index}
+                        item = {item}
+                        index = {index}
+                        deleteItem = {this.props.deleteItem}/>
+                    ))
                 }
             </div>
         )
     }
 }
 
-export default ItemList;
+
+const mapDispatchToProps = dispatch => ({
+    deleteItem: (index) => dispatch({ type: "DELETEITEM", index: index })
+})
+
+export default connect(null,mapDispatchToProps)(ItemList)

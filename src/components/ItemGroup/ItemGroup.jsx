@@ -9,7 +9,7 @@ class ItemGroup extends React.Component {
         return (
             <div>
                 <Add addItem={this.props.addItem} />
-                <ItemList deleteItem={this.props.deleteItem} items={this.props.items} />
+                <ItemList items={this.props.items} />
             </div>
         )
     }
@@ -19,13 +19,10 @@ const mapStateToProps = state => {
     return { items: state.items }
 }
 
-const mapDispatchToProps = dispach => ({
+const mapDispatchToProps = dispatch => ({
     // addItem : (itemValue) => dispach(addItemAction(itemValue)),
     // deleteItem : (index) => dispach(deleteItemAction(index))
-    addItem: (itemValue) => dispach({ type: "ADDITEM", itemValue: itemValue }),
-    deleteItem: (index) => dispach({ type: "DELETEITEM", index: index })
-
-
+    addItem: (itemValue) => dispatch({ type: "ADDITEM", itemValue: itemValue })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemGroup)
