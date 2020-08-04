@@ -22,7 +22,6 @@ class Item extends React.Component {
                     <button onClick = {this.deleteTodo}>X</button>
                 </div>
             </div>
-
         )
     }
 }
