@@ -12,16 +12,32 @@ class ShowItem extends React.Component{
         }
     }
     
+    // addItem = () => {
+    //     Axios.post('https://5e9ec500fb467500166c4658.mockapi.io/todos',{
+    //         content:this.input.value,
+    //         status:false
+    //     }).then((response)=>{
+    //         console.log(response.data)
+    //     }).catch((error) => {
+    //         console.log(error.data)
+    //     })
+    // }
 
     addItem = () => {
-        Axios.post('https://5e9ec500fb467500166c4658.mockapi.io/todos',{
-            content:this.input.value,
-            status:false
-        }).then((response)=>{
-            console.log(response.data)
-        }).catch((error) => {
-            console.log(error.data)
+        console.log("zengjia");
+        axiosUtil.axiosPOST({
+            content: this.input.value,
+            status: false
         })
+    }
+
+    handleChange = (item) => {
+        axiosUtil.axiosPUT(item)
+    }
+
+    deleteItem = (id) =>{
+        axiosUtil.axiosDELETE(id)
+        axiosUtil.axiosGET(this)
     }
 
 
@@ -33,8 +49,8 @@ class ShowItem extends React.Component{
         return (
             <div>
                <span>
-                    <input type= "text" onChange="handleChange"/>
-                    <button onClick={this.onClick}>Add</button>
+                    <input type= "text" defaultValue = "hahah"/>
+                    <button onClick={() => this.addItem()}>Add</button>
                </span>
                 {
                     this.state.items.map((item) => 
@@ -42,8 +58,8 @@ class ShowItem extends React.Component{
                         completed = {item.status}
                         text = {item.content}
                         index = {item.id}
-                        deleteItem = {this.props.deleteItem}
-                        updateItem = {this.props.updateItem}
+                        deleteItem = {this.deleteItem}
+                        updateItem = {this.handleChange}
                         />
                     )
                 }

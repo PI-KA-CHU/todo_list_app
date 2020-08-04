@@ -1,4 +1,5 @@
 import React from 'react'
+// import axiosUtil from '../../axiosUtil'
 
 class Item extends React.Component {
 
@@ -16,10 +17,10 @@ class Item extends React.Component {
         return (
             <div>
                 <div>
-                    <label onClick = {this.finishToDo} style={{ textDecorationLine: this.props.completed ? 'line-through' : 'none' }}>
+                    <label onClick = {() => this.props.updateItem({id: this.props.index,content: this.props.text, states: !this.props.completed})} style={{ textDecorationLine: this.props.completed ? 'line-through' : 'none' }}>
                          {this.props.text}
                     </label>
-                    <button onClick = {this.deleteTodo}>X</button>
+                    <button onClick = {() => this.props.deleteItem(this.props.index)}>X</button>
                 </div>
             </div>
         )

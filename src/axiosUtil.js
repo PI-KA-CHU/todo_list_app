@@ -13,29 +13,29 @@ export default {
                 })
             })
     },
-    axiosPOST: (postObject, successCallBack, errorCallBack) => {
-        axios.get('https://5e9ec500fb467500166c4658.mockapi.io/todos', postObject)
+    axiosPOST: (postObject) => {
+        axios.post('https://5e9ec500fb467500166c4658.mockapi.io/todos', postObject)
             .then((response) => {
-                successCallBack(response)
+                // console.log(response);
             }).catch((error) => {
-                errorCallBack(error)
+                console.log(error);
             })
     },
 
-    axiosPUT: (postObject, successCallBack, errorCallBack) => {
-        axios.get('https://5e9ec500fb467500166c4658.mockapi.io/todos' + postObject.id, postObject)
+    axiosPUT: (postObject) => {
+        axios.put('https://5e9ec500fb467500166c4658.mockapi.io/todos/' + postObject.id, postObject)
             .then((response) => {
-                successCallBack(response)
+                // console.log(response);
             }).catch((error) => {
-                errorCallBack(error)
+                console.log(error);
             })
     },
-    axiosDELETE: (id, successCallBack, errorCallBack) => {
-        axios.get('https://5e9ec500fb467500166c4658.mockapi.io/todos/' + id)
+    axiosDELETE: (id) => {
+        axios.delete('https://5e9ec500fb467500166c4658.mockapi.io/todos/' + id)
             .then((response) => {
-                successCallBack(response)
+                // console.log(response);
             }).catch((error) => {
-                errorCallBack(error)
+                console.log(error);
             })
     },
 

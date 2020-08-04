@@ -20,7 +20,7 @@ const render = () => ReactDOM.render(
 );  
 
 // 监听render方法
-// store.subscribe(render)
+store.subscribe(render)
 render()
 
 // If you want your app to work offline and load faster, you can change
