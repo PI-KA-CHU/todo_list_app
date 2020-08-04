@@ -3,18 +3,22 @@ import Item from '../item/item';
 import { connect } from 'react-redux'
 
 class ItemList extends React.Component {
+   
 
     render() {
-        const initArray = this.props.items;
+     
         // console.log(this.props.items)
         return (
             <div>
                 {
-                    initArray.map((item,index) => (
+                    this.props.items.map((item,index) => (
                         <Item key={index}
                         item = {item}
+                        isCompleted = {item.completed}
                         index = {index}
-                        deleteItem = {this.props.deleteItem}/>
+                        deleteItem = {this.props.deleteItem}
+                        updateItem = {this.props.updateItem}
+                        />
                     ))
                 }
             </div>
@@ -24,7 +28,8 @@ class ItemList extends React.Component {
 
 
 const mapDispatchToProps = dispatch => ({
-    deleteItem: (index) => dispatch({ type: "DELETEITEM", index: index })
+    deleteItem: (index) => dispatch({ type: "DELETEITEM", index: index }),
+    updateItem: (index) => dispatch({type: "CompleteToDo", index: index})
 })
 
 export default connect(null,mapDispatchToProps)(ItemList)

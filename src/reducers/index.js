@@ -1,21 +1,27 @@
 
 const initState = {
-    items : []
+    items: []
 }
 
 export default (state = initState, action) => {
-  switch (action.type) {
-      case "ADDITEM":
-          return {
-             items : [...state.items,action.itemValue]
-          }
-      case "DELETEITEM":
-          return {
-              items : state.items.filter((item,index) => action.index !== index)
-          }
-      default:
-          return state
-  }
+    switch (action.type) {
+        case "ADDITEM":
+            return {
+                items: [...state.items, {
+                    text: action.itemValue,
+                    completed: false
+                }]
+            }
+        case "DELETEITEM":
+            return {
+                items: state.items.filter((item, index) => action.index !== index)
+            }
+        case "CompleteToDo":
+            state.items[action.index].completed = !state.items[action.index].completed
+            return {items : [...state.items]}
+        default:
+            return state
+    }
 }
 
 // import {createReducer} from "@reduxjs/toolkit"
