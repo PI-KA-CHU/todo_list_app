@@ -32,12 +32,13 @@ class ShowItem extends React.Component{
     }
 
     handleChange = (item) => {
+        console.log(item);
+        item.status = !item.status
         axiosUtil.axiosPUT(item)
     }
 
     deleteItem = (id) =>{
         axiosUtil.axiosDELETE(id)
-        axiosUtil.axiosGET(this)
     }
 
 
@@ -49,13 +50,15 @@ class ShowItem extends React.Component{
         return (
             <div>
                <span>
-                    <input type= "text" defaultValue = "hahah"/>
+                   {/* 了解ref */}
+                    <input type= "text" ref={input => this.input = input}/>
                     <button onClick={() => this.addItem()}>Add</button>
                </span>
                 {
                     this.state.items.map((item) => 
                         <Item key={item.id}
                         completed = {item.status}
+                        item = {item}
                         text = {item.content}
                         index = {item.id}
                         deleteItem = {this.deleteItem}

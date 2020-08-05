@@ -17,7 +17,7 @@ class Item extends React.Component {
         return (
             <div>
                 <div>
-                    <label onClick = {() => this.props.updateItem({id: this.props.index,content: this.props.text, states: !this.props.completed})} style={{ textDecorationLine: this.props.completed ? 'line-through' : 'none' }}>
+                    <label onClick = {() => this.props.updateItem(this.props.item)} style={{ textDecorationLine: this.props.completed ? 'line-through' : 'none' }}>
                          {this.props.text}
                     </label>
                     <button onClick = {() => this.props.deleteItem(this.props.index)}>X</button>
