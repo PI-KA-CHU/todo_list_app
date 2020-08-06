@@ -2,10 +2,21 @@ import React from 'react'
 import Item from '../item/item'
 import { connect } from 'react-redux'
 
+import axiosUtil from '../../axiosUtil'
+
 class FinishTodo extends React.Component{
 
+    constructor(props){
+        super(props)
+        this.state = {
+            items: []
+        }
+    }
+
     render() {
-        const itemsFilter = this.props.items.filter(item => item.completed === true)
+        // axiosUtil.axiosGET(this)
+        const itemsFilter = this.state.items.filter(item => item.status === true)
+        console.log(itemsFilter)
         return ( 
             <div>
                 {
@@ -18,6 +29,7 @@ class FinishTodo extends React.Component{
                         />
                     ))
                 }
+
             </div>
         )
     }

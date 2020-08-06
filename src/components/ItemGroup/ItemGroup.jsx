@@ -4,8 +4,16 @@ import ItemList from '../ItemList/ItemList';
 import { connect } from 'react-redux'
 import {addItemAction}from '../../action/action_type'
 import {deleteItemAction}from '../../action/action_type'
-
+import {getTodos} from '../../axiosUtil'
 class ItemGroup extends React.Component {
+
+
+    componentWillMount(){
+        getTodos().then(data =>{
+           console.log(data)
+           this.items = data;
+        })
+    }
 
     render() {
         return (

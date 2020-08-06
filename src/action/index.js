@@ -7,3 +7,8 @@ export const addItemAction = createAction("ADDITEM",(value) =>({
 export const deleteItemAction = createAction("DELETEITEM",(value) =>({
     index: value
 }))
+
+export const updateItemAction = createAction("COMPLETETODO",(value) =>({
+    index: value
+}))
+

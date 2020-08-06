@@ -8,13 +8,20 @@ import counter from './reducers';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 
+import { Spin } from 'antd'
+
 const store = createStore(counter)
+
+let  loading = this.state.loading
 
 const render = () => ReactDOM.render(
   <React.StrictMode>
-    <Provider store ={store}>
-      <App />
-    </Provider>
+    
+    <Spin spinning = {loading} wrapperClassName="page-loading">
+      <Provider store ={store}>
+        <App  />
+      </Provider>
+    </Spin>
   </React.StrictMode>,
   document.getElementById('root')
 );  

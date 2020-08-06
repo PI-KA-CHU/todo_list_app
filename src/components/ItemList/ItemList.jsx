@@ -1,12 +1,13 @@
 import React from 'react'
 import Item from '../item/item';
 import { connect } from 'react-redux'
+import { deleteItemAction, updateItemAction } from '../../action';
 
 class ItemList extends React.Component {
 
     render() {
      
-        // console.log(this.props.items)
+        
         return (
             <div>
                 {
@@ -15,8 +16,8 @@ class ItemList extends React.Component {
                         item = {item}
                         isCompleted = {item.completed}
                         index = {index}
-                        deleteItem = {this.props.deleteItem}
-                        updateItem = {this.props.updateItem}
+                        deleteItemAction = {this.props.deleteItemAction}
+                        updateItemAction = {this.props.updateItemAction}
                         />
                     ))
                 }
@@ -25,10 +26,10 @@ class ItemList extends React.Component {
     }
 }
 
+const mapDispatchToProps =(
+    deleteItemAction(),
+    updateItemAction()
+)
 
-const mapDispatchToProps = dispatch => ({
-    deleteItem: (index) => dispatch({ type: "DELETEITEM", index: index }),
-    updateItem: (index) => dispatch({type: "COMPLETETODO", index: index})
-})
 
 export default connect(null,mapDispatchToProps)(ItemList)
